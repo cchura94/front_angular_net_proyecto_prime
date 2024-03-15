@@ -6,28 +6,38 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
 import { BlogComponent } from './blog/blog.component';
 import { GaleriaComponent } from './galeria/galeria.component';
 import { ServiciosComponent } from './servicios/servicios.component';
+import { WebComponent } from './web.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: InicioComponent,
-  },
-  {
-    path: 'nosotros',
-    component: NosotrosComponent
-  },
-  {
-    path: 'blog',
-    component: BlogComponent
-  },
-  {
-    path: 'galeria',
-    component: GaleriaComponent
-  },
-  {
-    path: 'servicios',
-    component: ServiciosComponent
+    component: WebComponent,
+    children: [
+      {
+        path: '',
+        component: InicioComponent,
+      },
+      {
+        path: 'nosotros',
+        component: NosotrosComponent
+      },
+      {
+        path: 'blog',
+        component: BlogComponent
+      },
+      {
+        path: 'galeria',
+        component: GaleriaComponent
+      },
+      {
+        path: 'servicios',
+        component: ServiciosComponent
+      }
+    ]
   }
+  
+  
+  
 ];
 
 @NgModule({
