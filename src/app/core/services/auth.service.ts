@@ -16,7 +16,11 @@ export class AuthService {
   }
 
   registroConNet(datos: any){
-    return this._http.post(`${this.urlBase}/api/auth/register`, datos)
+    return this._http.post(`${this.urlBase}/auth/register`, datos)
+  }
+
+  getPerfil(){
+    return this._http.get(`${this.urlBase}/v1/auth/profile`)
   }
 
 }

@@ -7,6 +7,7 @@ import { BlogComponent } from './blog/blog.component';
 import { GaleriaComponent } from './galeria/galeria.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 import { WebComponent } from './web.component';
+import { authGuard } from '../core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -16,22 +17,27 @@ const routes: Routes = [
       {
         path: '',
         component: InicioComponent,
+        canActivate: [authGuard]
       },
       {
         path: 'nosotros',
-        component: NosotrosComponent
+        component: NosotrosComponent,
+        canActivate: [authGuard]
       },
       {
         path: 'blog',
-        component: BlogComponent
+        component: BlogComponent,
+        canActivate: [authGuard]
       },
       {
         path: 'galeria',
-        component: GaleriaComponent
+        component: GaleriaComponent,
+        canActivate: [authGuard]
       },
       {
         path: 'servicios',
-        component: ServiciosComponent
+        component: ServiciosComponent,
+        canActivate: [authGuard]
       }
     ]
   }

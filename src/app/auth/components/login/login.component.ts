@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,7 @@ export class LoginComponent {
   
   loginForm: FormGroup;
   authService = inject(AuthService)
+  router = inject(Router)
 
   constructor(fb: FormBuilder){
     this.loginForm = fb.group({
@@ -22,7 +24,10 @@ export class LoginComponent {
   login(){
     this.authService.loginConNet(this.loginForm.value).subscribe(
       (res: any) => {
-        console.log(res);
+        console.log(res.access_token);
+        localStorage.setItem("access_token", res.access_token)
+
+        this.router.navigate(["/admin/perfil"]);
       }
     )
   }
