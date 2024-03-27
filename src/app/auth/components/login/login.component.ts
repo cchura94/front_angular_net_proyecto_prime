@@ -24,10 +24,10 @@ export class LoginComponent {
   login(){
     this.authService.loginConNet(this.loginForm.value).subscribe(
       (res: any) => {
-        console.log(res.access_token);
-        localStorage.setItem("access_token", res.access_token)
+        console.log(res);
+        localStorage.setItem("access_token", res)
 
-        this.router.navigate(["/admin/perfil"]);
+        this.router.navigate(["/admin"]);
       }
     )
   }

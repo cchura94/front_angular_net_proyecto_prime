@@ -1,3 +1,4 @@
 export const environment = {
-    production: "https://lv.blumbit.net/back/public/api"
+    servidor1: 'https://localhost:7197/api',
+    production: "https://lv.blumbit.net/back/public/api",
 };
